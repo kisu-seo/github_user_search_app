@@ -133,8 +133,8 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex items-start justify-center pt-[32px] px-[16px] pb-[136px] md:pt-[40px] md:px-[32px] md:pb-[290px] bg-neutral-100 dark:bg-neutral-900 transition-colors duration-300">
-      <main className="w-full max-w-[730px] flex flex-col gap-spacing-400 md:gap-[40px]">
+    <div className="min-h-screen flex items-start justify-center pt-[32px] px-[16px] pb-[136px] md:pt-[40px] md:px-[32px] md:pb-[290px] lg:items-center lg:pt-0 lg:pb-0 bg-neutral-100 dark:bg-neutral-900 transition-colors duration-300">
+      <main className="w-full max-w-[730px] flex flex-col gap-spacing-400 md:gap-[40px] lg:gap-[40px]">
         
         {/* --- Header / 네비게이션 헤더 --- */}
         <header className="flex justify-between items-center w-full">
@@ -142,7 +142,7 @@ function App() {
           <button 
             type="button" 
             onClick={toggleTheme}
-            className="flex items-center justify-center gap-spacing-150 md:gap-[16px] text-preset-8 text-neutral-500 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-neutral-0 uppercase transition-colors duration-200"
+            className="flex items-center justify-center gap-spacing-150 md:gap-[16px] text-preset-8 text-neutral-500 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-neutral-0 uppercase lg:cursor-pointer lg:focus-visible:outline lg:focus-visible:outline-2 lg:focus-visible:outline-blue-500 lg:focus-visible:outline-offset-[4px] lg:focus-visible:rounded-radius-4 transition-colors duration-200"
             aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
           >
             <span>{theme === 'light' ? 'dark' : 'light'}</span>
@@ -151,7 +151,7 @@ function App() {
         </header>
 
         {/* --- Search Box / 검색 폼 --- */}
-        <form onSubmit={handleSearchSubmit} className="relative w-full flex items-center justify-center md:justify-between bg-neutral-0 dark:bg-neutral-800 rounded-radius-16 p-spacing-100 md:py-[10.5px] md:pl-[24px] md:pr-[12px] shadow-[0_16px_30px_-10px_rgba(70,96,187,0.1986)] transition-shadow duration-300">
+        <form onSubmit={handleSearchSubmit} tabIndex={0} className="relative w-full flex items-center justify-center md:justify-between bg-neutral-0 dark:bg-neutral-800 rounded-radius-16 p-spacing-100 md:py-[10.5px] md:pl-[24px] md:pr-[12px] lg:py-[22px] shadow-[0_16px_30px_-10px_rgba(70,96,187,0.1986)] transition-shadow duration-300 focus:outline-none lg:focus-within:outline lg:focus-within:outline-2 lg:focus-within:outline-blue-500 lg:focus-within:outline-offset-[4px] lg:focus-within:rounded-radius-4">
           <div className="pl-spacing-0 pr-spacing-150 md:pl-spacing-0 md:pr-[20px] flex items-center" aria-hidden="true">
             <SearchIcon />
           </div>
@@ -160,19 +160,19 @@ function App() {
             placeholder="Search GitHub username..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-[188px] md:w-auto md:flex-1 bg-transparent text-neutral-500 dark:text-neutral-0 text-preset-3-mobile md:text-preset-3 placeholder:text-neutral-500 dark:placeholder:text-neutral-0/70 focus:outline-none mr-spacing-0"
+            className="w-[188px] md:w-auto md:flex-1 bg-transparent text-neutral-500 dark:text-neutral-0 text-preset-3-mobile md:text-preset-3 placeholder:text-neutral-500 dark:placeholder:text-neutral-0/70 focus:outline-none lg:focus-visible:outline lg:focus-visible:outline-2 lg:focus-visible:outline-blue-500 lg:focus-visible:outline-offset-[4px] lg:focus-visible:rounded-radius-4 mr-spacing-0"
             aria-label="GitHub username search input"
           />
           <div className="flex items-center gap-spacing-300">
             {error && (
-              <span className="text-preset-6 text-red-500 font-bold whitespace-nowrap" role="alert">
+              <span className="text-preset-6 lg:text-preset-5 text-red-500 font-bold whitespace-nowrap" role="alert">
                 No results
               </span>
             )}
             <button 
               type="submit" 
               disabled={loading}
-              className="bg-blue-500 hover:bg-blue-300 active:scale-[0.98] text-neutral-0 text-preset-5 py-spacing-150 px-spacing-250 rounded-radius-10 transition-all duration-200 disabled:opacity-50 w-[99px] md:w-[107px]"
+              className="bg-blue-500 hover:bg-blue-300 active:scale-[0.98] text-neutral-0 text-preset-5 py-spacing-150 px-spacing-250 rounded-radius-10 lg:cursor-pointer lg:focus-visible:outline lg:focus-visible:outline-2 lg:focus-visible:outline-blue-500 lg:focus-visible:outline-offset-[4px] lg:focus-visible:rounded-radius-4 transition-all duration-200 disabled:opacity-50 w-[99px] md:w-[107px]"
             >
               {loading ? 'Searching...' : 'Search'}
             </button>
@@ -180,12 +180,12 @@ function App() {
         </form>
 
         {/* --- Result Container / 결과 영역 --- */}
-        <section className="w-full bg-neutral-0 dark:bg-neutral-800 rounded-radius-16 py-spacing-400 px-spacing-300 md:py-[48px] md:px-[32px] shadow-[0_16px_30px_-10px_rgba(70,96,187,0.2)] dark:shadow-none transition-all duration-300 min-h-[400px] flex items-center justify-center">
+        <section className="w-full bg-neutral-0 dark:bg-neutral-800 rounded-radius-16 py-spacing-400 px-spacing-300 md:py-[48px] md:px-[32px] lg:p-[48px] shadow-[0_16px_30px_-10px_rgba(70,96,187,0.2)] dark:shadow-none transition-all duration-300 min-h-[400px] flex items-center justify-center">
           {error ? (
             /* --- Error Card / 에러 발생 화면 --- */
-            <div className="flex flex-col items-center justify-center text-center max-w-[490px] py-spacing-600">
-              <h2 className="text-preset-2 text-neutral-700 dark:text-neutral-0 mb-spacing-200">No results found!</h2>
-              <p className="text-preset-6 text-neutral-500 dark:text-neutral-200">
+            <div className="flex flex-col items-center justify-center text-center max-w-[490px] py-spacing-600 lg:py-[80px]">
+              <h2 className="text-preset-2 text-neutral-700 dark:text-neutral-0 mb-spacing-200 lg:mb-[16px] lg:text-[22px] font-bold">No results found!</h2>
+              <p className="text-preset-6 text-neutral-500 dark:text-neutral-200 lg:max-w-[420px] lg:mx-auto lg:leading-[25px]">
                 We couldn’t find any GitHub users matching your search. Please double-check the username and try again.
               </p>
             </div>
@@ -201,7 +201,7 @@ function App() {
 
               <div className="flex-1 flex flex-col">
                 {/* 상단 프로필 헤더 */}
-                <div className="flex gap-spacing-250 md:gap-0 items-start justify-between mb-spacing-400 md:mb-[32px] md:w-[480px]">
+                <div className="flex gap-spacing-250 md:gap-0 items-start justify-between mb-spacing-400 md:mb-[32px] md:w-[480px] lg:mb-[24px]">
                   {/* 모바일 아바타 */}
                   <img 
                     src={userData.avatar_url} 
@@ -224,7 +224,7 @@ function App() {
                 </div>
 
                 {/* 바이오 설명 */}
-                <p className={`text-preset-4 mb-spacing-300 ${userData.bio ? 'text-neutral-500 dark:text-neutral-200' : 'text-neutral-500 dark:text-neutral-0/70'}`}>
+                <p className={`text-preset-4 lg:text-preset-6 mb-spacing-300 ${userData.bio ? 'text-neutral-500 dark:text-neutral-200' : 'text-neutral-500 dark:text-neutral-0/70'}`}>
                   {userData.bio || 'This profile has no bio'}
                 </p>
 
@@ -263,7 +263,7 @@ function App() {
                   <div className={`flex items-center gap-spacing-200 ${userData.twitter_username ? 'text-neutral-500 dark:text-neutral-0' : 'text-neutral-300 dark:text-neutral-0 opacity-50'}`}>
                     <div className="w-spacing-250 flex justify-center text-neutral-900 dark:text-neutral-0"><TwitterIcon /></div>
                     {userData.twitter_username ? (
-                      <a href={`https://twitter.com/${userData.twitter_username}`} target="_blank" rel="noopener noreferrer" className="hover:underline truncate">
+                      <a href={`https://twitter.com/${userData.twitter_username}`} target="_blank" rel="noopener noreferrer" className="hover:underline lg:cursor-pointer lg:focus-visible:outline lg:focus-visible:outline-2 lg:focus-visible:outline-blue-500 lg:focus-visible:outline-offset-[4px] lg:focus-visible:rounded-radius-4 truncate">
                         {userData.twitter_username}
                       </a>
                     ) : (
@@ -275,7 +275,7 @@ function App() {
                   <div className={`flex items-center gap-spacing-200 ${userData.blog ? 'text-neutral-500 dark:text-neutral-0' : 'text-neutral-300 dark:text-neutral-0 opacity-50'}`}>
                     <div className="w-spacing-250 flex justify-center text-neutral-900 dark:text-neutral-0"><WebsiteIcon /></div>
                     {userData.blog ? (
-                      <a href={userData.blog.startsWith('http') ? userData.blog : `https://${userData.blog}`} target="_blank" rel="noopener noreferrer" className="hover:underline truncate">
+                      <a href={userData.blog.startsWith('http') ? userData.blog : `https://${userData.blog}`} target="_blank" rel="noopener noreferrer" className="hover:underline lg:cursor-pointer lg:focus-visible:outline lg:focus-visible:outline-2 lg:focus-visible:outline-blue-500 lg:focus-visible:outline-offset-[4px] lg:focus-visible:rounded-radius-4 truncate">
                         {userData.blog}
                       </a>
                     ) : (
@@ -287,7 +287,7 @@ function App() {
                   <div className={`flex items-center gap-spacing-200 ${userData.company ? 'text-neutral-500 dark:text-neutral-0' : 'text-neutral-300 dark:text-neutral-0 opacity-50'}`}>
                     <div className="w-spacing-250 flex justify-center text-neutral-900 dark:text-neutral-0"><CompanyIcon /></div>
                     {userData.company ? (
-                      <a href={`https://github.com/${userData.company.startsWith('@') ? userData.company.slice(1) : userData.company}`} target="_blank" rel="noopener noreferrer" className="hover:underline truncate">
+                      <a href={`https://github.com/${userData.company.startsWith('@') ? userData.company.slice(1) : userData.company}`} target="_blank" rel="noopener noreferrer" className="hover:underline lg:cursor-pointer lg:focus-visible:outline lg:focus-visible:outline-2 lg:focus-visible:outline-blue-500 lg:focus-visible:outline-offset-[4px] lg:focus-visible:rounded-radius-4 truncate">
                         {userData.company}
                       </a>
                     ) : (
