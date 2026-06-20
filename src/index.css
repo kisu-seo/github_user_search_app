@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  /* --- Colors / 색상 --- */
+  --color-neutral-900: #141D2F;
+  --color-neutral-800: #1E2A47;
+  --color-neutral-700: #2B3442;
+  --color-neutral-500: #4B6A9B;
+  --color-neutral-300: #697C9A;
+  --color-neutral-200: #90A4D4;
+  --color-neutral-100: #F6F8FF;
+  --color-neutral-0: #FFFFFF;
+
+  --color-blue-300: #60ABFF;
+  --color-blue-500: #0079FF;
+
+  --color-red-500: #F74646;
+
+  /* --- Border Radius / 테두리 반경 --- */
+  --radius-radius-0: 0px;
+  --radius-radius-4: 4px;
+  --radius-radius-6: 6px;
+  --radius-radius-8: 8px;
+  --radius-radius-10: 10px;
+  --radius-radius-12: 12px;
+  --radius-radius-16: 16px;
+  --radius-radius-20: 20px;
+  --radius-radius-24: 24px;
+  --radius-radius-full: 999px;
+
+  /* --- Spacing / 간격 --- */
+  --spacing-spacing-0: 0px;
+  --spacing-spacing-025: 2px;
+  --spacing-spacing-050: 4px;
+  --spacing-spacing-075: 6px;
+  --spacing-spacing-100: 8px;
+  --spacing-spacing-125: 10px;
+  --spacing-spacing-150: 12px;
+  --spacing-spacing-200: 16px;
+  --spacing-spacing-250: 20px;
+  --spacing-spacing-300: 24px;
+  --spacing-spacing-400: 32px;
+  --spacing-spacing-500: 40px;
+  --spacing-spacing-600: 48px;
+  --spacing-spacing-800: 64px;
+  --spacing-spacing-1000: 80px;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+/* --- Typography / 타이포그래피 프리셋 --- */
+@utility text-preset-1 {
+  font-size: 26px;
+  line-height: 120%;
+  font-weight: 700;
+  letter-spacing: 0px;
+}
+@utility text-preset-2 {
+  font-size: 22px;
+  line-height: 140%;
+  font-weight: 700;
+  letter-spacing: 0px;
+}
+@utility text-preset-3 {
+  font-size: 18px;
+  line-height: 140%;
+  font-weight: 400;
+  letter-spacing: 0px;
+}
+@utility text-preset-3-mobile {
+  font-size: 13px;
+  line-height: 140%;
+  font-weight: 400;
+  letter-spacing: 0px;
+}
+@utility text-preset-4 {
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+  letter-spacing: 0px;
+}
+@utility text-preset-5 {
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 700;
+  letter-spacing: 0px;
+}
+@utility text-preset-6 {
+  font-size: 15px;
+  line-height: 150%;
+  font-weight: 400;
+  letter-spacing: 0px;
+}
+@utility text-preset-7 {
+  font-size: 13px;
+  line-height: 150%;
+  font-weight: 400;
+  letter-spacing: 0px;
+}
+@utility text-preset-8 {
+  font-size: 13px;
+  line-height: 140%;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+@layer base {
+  body {
+    @apply font-mono antialiased;
+  }
+}
